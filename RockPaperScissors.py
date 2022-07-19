@@ -1,24 +1,18 @@
 def rps(p1, p2):
-    if p1 == p2:
+
+    hands = {
+        'rock':'scissors',
+        'scissors':'paper',
+        'paper':'rock'
+    }
+
+    # if the value at the key of p1 equals p2 then p1 won the match
+    if hands[p1] == p2:
+        return 'Player 1 won!'
+    elif hands[p2] == p1:
+        return 'Player 2 won!'
+    else:
         return 'Draw!'
-    
-    if p1 == 'scissors':
-        if p2 == 'paper':
-            return 'Player 1 won!'
-        else:
-            return 'Player 2 won!'
-    
-    if p1 == 'rock':
-        if p2 == 'scissors':
-            return 'Player 1 won!'
-        else:
-            return 'Player 2 won!'
 
-    if p1 == 'paper':
-        if p2 == 'rock':
-            return 'Player 1 won!'
-        else:
-            return 'Player 2 won!'
-
-print(rps('rock', 'scissors'))
+print(rps('rock', 'rock'))
 
