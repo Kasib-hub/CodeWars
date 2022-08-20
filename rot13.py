@@ -1,14 +1,24 @@
+import enum
+
+
 def rot13(message):
-    lower = message.lower()
-    str = []
-    for i, char in enumerate(lower):
-        str.append(chr(ord(char) + 13))
-        if str[i].upper() == str[i].lower():
-            str[i] = chr(ord(char) - 13)
-        elif char.upper() == message[i] and ord(message[i]) > 77 and ord(message[i]) < 91: 
-           str[i] = str[i].upper()
-    return ''.join(str)
-    pass
+    res = []
+    lower_str = [x.lower() for x in message]
+    for i, char in enumerate(message):
+        if char.isalpha():
+            shift_char = chr(ord(lower_str[i]) + 13)
+
+            if not shift_char.isalpha():
+                shift_char = chr(ord(lower_str[i]) + 13 - 26)
+            res.append(shift_char)
+
+            if char == char.upper():
+                res[i] = res[i].upper()
+        else:
+            res.append(char)
+            
+    return ''.join(res)
+
 
 print(rot13('test'))
 print(rot13('Test'))
