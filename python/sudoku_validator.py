@@ -1,3 +1,8 @@
+# Description: Write a function validSolution/ValidateSolution/valid_solution() that accepts a 2D array representing a Sudoku board,
+
+# and returns true if it is a valid solution, or false otherwise. The cells of the sudoku board may also contain 0's, which will represent empty cells.
+
+# col_grab() and square_grab() are helper functions that check the columns and squares of the board, respectively, for duplicates.
 def col_grab(board, col_idx):
     column = set()
     for i in range(9):
@@ -14,6 +19,7 @@ def square_grab(board, row_idx, col_idx):
 
 def valid_solution(board):
     for row in range(9):
+        # rower is a set of the row
         rower = set(board[row])
         for col in range(9):
             if board[row][col] == 0:
